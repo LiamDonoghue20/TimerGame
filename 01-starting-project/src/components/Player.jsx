@@ -1,13 +1,18 @@
 import { useState, useRef } from "react";
 
 export default function Player() {
+  //reference to hold the player name 
   const playerName = useRef();
-  const [enteredPlayerName, setEnteredPlayerName] = useState('')
+
+  //state to update the UI once the player name has been updated
+  const [enteredPlayerName, setEnteredPlayerName] = useState(null)
 
 
-  
+  //upon clicking the set name button, this function is called
   function handleClick() {
-    setEnteredPlayerName(playerName.current)
+    //uses the setter to set the enteredPlayerName state value to the current value of the reference
+    setEnteredPlayerName(playerName.current.value)
+    //resets the current playerName reference value to an empty string to clear the input in the UI
     playerName.current.value = '';
   }
 
